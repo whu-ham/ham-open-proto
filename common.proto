@@ -1,0 +1,11 @@
+syntax = "proto3";
+package ham;
+option java_package = "com.nowcent.ham.pb";
+option java_multiple_files = true;
+option go_package = "pb/ham";
+
+enum CourseScoreItemType {
+  COURSE_SCORE_ITEM_TYPE_NONE = 0;
+  COURSE_SCORE_ITEM_TYPE_COURSE_NAME = 1;
+  COURSE_SCORE_ITEM_TYPE_INSTRUCTOR_NAME = 2;
+}

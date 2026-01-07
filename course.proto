@@ -1,0 +1,34 @@
+syntax = "proto3";
+package ham;
+option java_package = "com.nowcent.ham.pb";
+option java_multiple_files = true;
+option go_package = "pb/ham";
+import "proto/common.proto";
+
+message SearchCourseRequest {
+  string keyword = 1;
+  SearchCourseKeywordType keyword_type = 2;
+}
+
+enum SearchCourseKeywordType {
+  SEARCH_COURSE_KEYWORD_TYPE_NONE = 0;
+  SEARCH_COURSE_KEYWORD_TYPE_COURSE_NAME = 1;
+  SEARCH_COURSE_KEYWORD_TYPE_INSTRUCTOR_NAME = 2;
+}
+
+
+message SearchCourseResponse {
+  repeated SearchCourseHitItem item = 1;
+}
+
+// KursScoreItemType is now in common.proto
+
+message SearchCourseHitItem {
+  CourseScoreItemType type = 1;
+  string value = 2;
+  string hit = 3;
+}
+
+service SearchCourseService {
+  rpc SearchCourse (SearchCourseRequest) returns (SearchCourseResponse) {}
+}
