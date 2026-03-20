@@ -1,9 +1,8 @@
 syntax = "proto3";
-package ham;
 option java_package = "com.nowcent.ham.pb";
 option java_multiple_files = true;
 option go_package = "pb/ham";
-import "proto/common.proto";
+import "common.proto";
 
 message SearchCourseRequest {
   string keyword = 1;
