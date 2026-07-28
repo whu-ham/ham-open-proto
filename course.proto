@@ -24,6 +24,8 @@ message SearchCourseHitItem {
   CourseScoreItemType type = 1;
   string value = 2;
   string hit = 3;
+  // Raw instructor strings for each offering of this course name.
+  repeated string instructor_list = 4;
 }
 
 service SearchCourseService {

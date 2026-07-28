@@ -39,3 +39,24 @@ message CourseScoreRangeResponseItem {
 service GetCourseScoreService {
   rpc GetCourseScoreItem(GetCourseScoreItemRequest) returns (GetCourseScoreItemResponse);
 }
+
+message UploadScoreRequest {
+  string student_id_secret = 1;
+  repeated UploadScoreItem score = 2;
+}
+
+message UploadScoreResponse {}
+
+message UploadScoreItem {
+  string name = 1;
+  string instructor = 2;
+  string courseId = 3;
+  double credit = 4;
+  int32 year = 5;
+  int32 semester = 6;
+  int32 score = 7;
+}
+
+service UploadScoreService {
+  rpc UploadScore (UploadScoreRequest) returns (UploadScoreResponse) {}
+}
