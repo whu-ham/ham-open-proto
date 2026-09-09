@@ -15,6 +15,18 @@ message GetCourseScoreItemResponse {
   CourseScoreItem item = 1;
 }
 
+message GetCourseScoresByCourseNameRequest {
+  string course_name = 1;
+  int32 page_num = 2;
+  int32 page_size = 3;
+}
+
+message GetCourseScoresByCourseNameResponse {
+  repeated CourseScoreItem item = 1;
+  int32 page_num = 2;
+  bool has_more = 3;
+}
+
 message CourseScoreItem {
   string name = 1;
   string instructor = 2;
@@ -38,4 +50,6 @@ message CourseScoreRangeResponseItem {
 
 service GetCourseScoreService {
   rpc GetCourseScoreItem(GetCourseScoreItemRequest) returns (GetCourseScoreItemResponse);
+  rpc GetCourseScoresByCourseName(GetCourseScoresByCourseNameRequest)
+      returns (GetCourseScoresByCourseNameResponse);
 }
